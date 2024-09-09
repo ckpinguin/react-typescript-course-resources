@@ -9,26 +9,26 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var userName = 'Max';
+var userName = "Max";
 // userName = 34;
-userName = 'Max';
+userName = "Max";
 var userAge = 34;
 var isValid = true;
-var userID = 'abc1';
+var userID = "abc1";
 userID = 123;
 var user;
 // user = 'Max';
 user = {
-    name: 'Max',
+    name: "Max",
     age: 34,
     isAdmin: true,
-    id: 'abc', // 123
+    id: "abc", // 123
 };
 // user = {};
 // let hobbies: Array<string>;
 var hobbies; // number[], boolean[]
 // {name: string; age: number}[]
-hobbies = ['Sports', 'Cooking', 'Reading'];
+hobbies = ["Sports", "Cooking", "Reading"];
 // hobbies = [1, 2, 3];
 function add(a, b) {
     var result = a + b;
@@ -43,8 +43,8 @@ calculate(2, 5, add);
 // }
 var creds;
 creds = {
-    password: 'abc',
-    email: 'test@example.com',
+    password: "abc",
+    email: "test@example.com",
 };
 var AuthCredentials = /** @class */ (function () {
     function AuthCredentials() {
@@ -55,21 +55,21 @@ function login(credentials) { }
 login(new AuthCredentials());
 var admin;
 admin = {
-    permissions: ['login'],
-    userName: 'Max',
+    permissions: ["login"],
+    userName: "Max",
 };
 var role; // 'admin', 'user', 'editor'
-role = 'admin';
-role = 'user';
-role = 'editor';
+role = "admin";
+role = "user";
+role = "editor";
 // role = 'abc';
 function performAction(action, role) {
-    if (role === 'admin' && typeof action === 'string') {
+    if (role === "admin" && typeof action === "string") {
         // ...
     }
 }
 var roles;
-roles = ['admin', 'editor'];
+roles = ["admin", "editor"];
 var textStorage = {
     storage: [],
     add: function (data) {
@@ -83,4 +83,6 @@ var userStorage = {
 function merge(a, b) {
     return __assign(__assign({}, a), b);
 }
-var newUser = merge({ name: 'Max' }, { age: 34 });
+var newUser = merge({ name: "Max" }, { age: 34 });
+var another = merge("abc", 123);
+console.log(another);

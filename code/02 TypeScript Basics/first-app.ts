@@ -161,3 +161,5 @@ function merge<T, U>(a: T, b: U) {
 }
 
 const newUser = merge({ name: "Max" }, { age: 34 })
+const another = merge<string, number>("abc", 123) // See below
+console.log(another) // {0: 'a', 1: 'b', 2: 'c'} which is probably not what you want
