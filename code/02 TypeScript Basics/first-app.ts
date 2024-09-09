@@ -1,88 +1,88 @@
-let userName = 'Max';
+let userName = "Max"
 
 // userName = 34;
-userName = 'Max';
+userName = "Max"
 
-let userAge = 34;
+let userAge = 34
 
-let isValid = true;
+let isValid = true
 
 // string, number, boolean
 
-type StringOrNum = string | number;
+type StringOrNum = string | number
 
-let userID: StringOrNum = 'abc1';
-userID = 123;
+let userID: StringOrNum = "abc1"
+userID = 123
 
 // userID = true;
 
 // let user: object;
 type User = {
-  name: string;
-  age: number;
-  isAdmin: boolean;
-  id: string | number;
-};
+  name: string
+  age: number
+  isAdmin: boolean
+  id: string | number
+}
 
-let user: User;
+let user: User
 
 // user = 'Max';
 
 user = {
-  name: 'Max',
+  name: "Max",
   age: 34,
   isAdmin: true,
-  id: 'abc', // 123
-};
+  id: "abc", // 123
+}
 
 // user = {};
 
 // let hobbies: Array<string>;
-let hobbies: string[]; // number[], boolean[]
+let hobbies: string[] // number[], boolean[]
 
 // {name: string; age: number}[]
 
-hobbies = ['Sports', 'Cooking', 'Reading'];
+hobbies = ["Sports", "Cooking", "Reading"]
 // hobbies = [1, 2, 3];
 
 function add(a: number, b: number) {
-  const result = a + b;
-  return result;
+  const result = a + b
+  return result
 }
 
-type AddFn = (a: number, b: number) => number;
+type AddFn = (a: number, b: number) => number
 
 function calculate(a: number, b: number, calcFn: AddFn) {
-  calcFn(a, b);
+  calcFn(a, b)
 }
 
-calculate(2, 5, add);
+calculate(2, 5, add)
 
 interface Credentials {
-  password: string;
-  email: string;
+  password: string
+  email: string
 }
 
 // interface Credentials {
 //   mode: string;
 // }
 
-let creds: Credentials;
+let creds: Credentials
 
 creds = {
-  password: 'abc',
-  email: 'test@example.com',
-};
+  password: "abc",
+  email: "test@example.com",
+}
 
 class AuthCredentials implements Credentials {
-  email: string;
-  password: string;
-  userName: string;
+  email: string
+  password: string
+  userName: string
 }
 
 function login(credentials: Credentials) {}
 
-login(new AuthCredentials());
+login(new AuthCredentials())
 
 // type Admin = {
 //   permissions: string[]
@@ -102,65 +102,62 @@ login(new AuthCredentials());
 // }
 
 interface Admin {
-  permissions: string[];
+  permissions: string[]
 }
 
 interface AppUser {
-  userName: string;
+  userName: string
 }
 
 interface AppAdmin extends Admin, AppUser {}
 
-let admin: AppAdmin;
+let admin: AppAdmin
 
 admin = {
-  permissions: ['login'],
-  userName: 'Max',
-};
+  permissions: ["login"],
+  userName: "Max",
+}
 
-type Role = 'admin' | 'user' | 'editor';
+type Role = "admin" | "user" | "editor"
 
-let role: Role; // 'admin', 'user', 'editor'
+let role: Role // 'admin', 'user', 'editor'
 
-role = 'admin';
-role = 'user';
-role = 'editor';
+role = "admin"
+role = "user"
+role = "editor"
 // role = 'abc';
 
 function performAction(action: string | number, role: Role) {
-  if (role === 'admin' && typeof action === 'string') {
+  if (role === "admin" && typeof action === "string") {
     // ...
   }
 }
 
-let roles: Array<Role>;
-roles = ['admin', 'editor'];
+let roles: Array<Role>
+roles = ["admin", "editor"]
 
 type DataStorage<T> = {
-  storage: T[];
-  add: (data: T) => void;
-};
+  storage: T[]
+  add: (data: T) => void
+}
 
 const textStorage: DataStorage<string> = {
   storage: [],
   add(data) {
-    this.storage.push(data);
+    this.storage.push(data)
   },
-};
+}
 
 const userStorage: DataStorage<User> = {
   storage: [],
   add(user) {},
-};
+}
 
 function merge<T, U>(a: T, b: U) {
   return {
     ...a,
     ...b,
-  };
+  }
 }
 
-const newUser = merge(
-  { name: 'Max' },
-  { age: 34 }
-);
+const newUser = merge({ name: "Max" }, { age: 34 })
