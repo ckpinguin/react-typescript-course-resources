@@ -19,13 +19,22 @@ export default function App() {
     console.log(courseGoals);
   }
 
+  function handleDeleteGoal(id: number) {
+    setCourseGoals((prevCourseGoals) => {
+      return prevCourseGoals.filter((goal) => goal.id !== id);
+    });
+  }
+
   return (
     <main>
       <Header image={{ src: goalsImg, alt: "A list of goals" }}>
         <h1>Your Course Goals</h1>
       </Header>
       <button onClick={handleAddGoal}>Add New Goal</button>
-      <CourseGoalList courseGoals={courseGoals} />
+      <CourseGoalList
+        courseGoals={courseGoals}
+        onDeleteGoal={handleDeleteGoal}
+      />
     </main>
   );
 }
