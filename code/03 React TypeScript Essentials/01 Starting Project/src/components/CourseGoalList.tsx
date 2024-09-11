@@ -20,7 +20,7 @@ export default function CourseGoalList({
 
   if (courseGoals.length > 4) {
     warningBox = (
-      <InfoBox mode="warning">
+      <InfoBox mode="warning" severity="medium">
         You have a lot of goals. Don't pressure yourself too much.
       </InfoBox>
     );
