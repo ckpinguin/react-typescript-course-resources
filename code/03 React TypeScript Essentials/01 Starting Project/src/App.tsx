@@ -20,6 +20,12 @@ export default function App() {
     console.log(courseGoals);
   }
 
+  function handleDeleteGoal(id: number) {
+    setCourseGoals((prevCourseGoals) => {
+      return prevCourseGoals.filter((goal) => goal.id !== id);
+    });
+  }
+
   return (
     <main>
       <Header image={{ src: goalsImg, alt: "A list of goals" }}>
