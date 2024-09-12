@@ -1,6 +1,6 @@
 import {
   type FormEvent,
-  type ComponentPropsWithoutRef,
+  type ComponentPropsWithRef,
   useRef,
   useImperativeHandle,
   forwardRef,
@@ -8,7 +8,7 @@ import {
 
 export type FormHandle = { clear: () => void };
 
-type FormProps = ComponentPropsWithoutRef<"form"> & {
+type FormProps = ComponentPropsWithRef<"form"> & {
   onSave: (value: unknown) => void;
 };
 
