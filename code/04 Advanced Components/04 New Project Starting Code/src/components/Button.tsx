@@ -8,6 +8,7 @@ interface AnchorProps extends ComponentPropsWithoutRef<"a"> {
   href?: string;
 }
 
+// Predicate function
 function isAnchorProps(props: ButtonProps | AnchorProps): props is AnchorProps {
   return "href" in props;
 }
