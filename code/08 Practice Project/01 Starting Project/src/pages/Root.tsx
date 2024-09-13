@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
 
 export default function Root() {
   return (
     <>
-      <header>Sessions</header>
+      <header id="main-header">
+        <h1>Sessions</h1>
+      </header>
       <Outlet />
     </>
   );

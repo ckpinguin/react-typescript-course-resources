@@ -11,10 +11,11 @@ export default function SessionsPage() {
           you!
         </p>
       </header>
-      <ul></ul>
-      {SESSIONS.map((session) => (
-        <li>{session.title}</li>
-      ))}
+      <ul>
+        {SESSIONS.map((session) => (
+          <li>{session.title}</li>
+        ))}
+      </ul>
     </main>
   );
 }

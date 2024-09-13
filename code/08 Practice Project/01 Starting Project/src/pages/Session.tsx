@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import { SESSIONS } from "../dummy-sessions.ts";
-import Button from "../components/Button.tsx";
+import Button from "../components/UI/Button.tsx";
 
 export default function SessionPage() {
   const params = useParams<{ id: string }>();
