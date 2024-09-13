@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom";
 
 import { SESSIONS } from "../dummy-sessions.ts";
 import Button from "../components/UI/Button.tsx";
+import { useState } from "react";
+import BookSession from "../components/Sessions/BookSession.tsx";
 
 export default function SessionPage() {
+  const [isBooking, setIsBooking] = useState(false);
   const params = useParams<{ id: string }>();
 
   const sessionId = params.id;
@@ -17,8 +20,18 @@ export default function SessionPage() {
     );
   }
 
+  function handleStartBooking() {
+    setIsBooking(true);
+  }
+  function handleStopBooking() {
+    setIsBooking(false);
+  }
+
   return (
     <main id="session-page">
+      {isBooking && (
+        <BookSession session={loadedSession} onDone={handleStopBooking} />
+      )}
       <article>
         <header>
           <img src={loadedSession.image} alt={loadedSession.title} />
@@ -32,7 +45,7 @@ export default function SessionPage() {
               })}
             </time>
             <p>
-              <Button>Open Session</Button>
+              <Button onClick={handleStartBooking}>Open Session</Button>
             </p>
           </div>
         </header>

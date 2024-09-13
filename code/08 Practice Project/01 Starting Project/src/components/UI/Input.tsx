@@ -1,20 +1,15 @@
-import { forwardRef, type ComponentPropsWithRef } from "react";
+import { type ComponentPropsWithoutRef } from "react";
 
-interface InputProps extends ComponentPropsWithRef<"input"> {
+interface InputProps extends ComponentPropsWithoutRef<"input"> {
   label: string;
   id: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { label, id, ...props },
-  ref
-) {
+export default function Input({ label, id, ...props }: InputProps) {
   return (
-    <div>
+    <div className="control">
       <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} ref={ref} {...props} />
+      <input id={id} name={id} {...props} />
     </div>
   );
-});
-
-export default Input;
+}

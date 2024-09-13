@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
-import UpcomingSessions from "../Sessions/UpcomingSessions.jsx";
-import Button from "../UI/Button.jsx";
+import Button from "../UI/Button";
+import UpcomingSessions from "../Sessions/UpcomingSessions";
 
 export default function MainHeader() {
   const [upcomingSessionsVisible, setUpcomingSessionsVisible] = useState(false);
@@ -10,18 +9,17 @@ export default function MainHeader() {
   function showUpcomingSessions() {
     setUpcomingSessionsVisible(true);
   }
-
   function hideUpcomingSessions() {
     setUpcomingSessionsVisible(false);
   }
 
   return (
     <>
-      {upcomingSessionsVisible && (
+      {upcomingSessionsVisible ? (
         <UpcomingSessions onClose={hideUpcomingSessions} />
-      )}
+      ) : null}
       <header id="main-header">
-        <h1>ReactMentoring</h1>
+        <h1>React Mentoring</h1>
         <nav>
           <ul>
             <li>
@@ -31,12 +29,10 @@ export default function MainHeader() {
                 end>
                 Our Mission
               </NavLink>
-            </li>
-            <li>
               <NavLink
                 to="/sessions"
                 className={({ isActive }) => (isActive ? "active" : "")}>
-                Browse Sessions
+                Sessions
               </NavLink>
             </li>
             <li>
