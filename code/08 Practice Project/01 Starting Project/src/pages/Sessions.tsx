@@ -1,3 +1,4 @@
+import SessionsList from "../components/Sessions/SessionsList.tsx";
 import { SESSIONS } from "../dummy-sessions.ts"; // normally, we would probably load that from a server
 
 export default function SessionsPage() {
@@ -11,11 +12,7 @@ export default function SessionsPage() {
           you!
         </p>
       </header>
-      <ul>
-        {SESSIONS.map((session) => (
-          <li>{session.title}</li>
-        ))}
-      </ul>
+      <SessionsList sessions={SESSIONS} />
     </main>
   );
 }

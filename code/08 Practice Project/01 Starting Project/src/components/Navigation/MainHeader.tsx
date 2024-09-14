@@ -32,7 +32,7 @@ export default function MainHeader() {
               <NavLink
                 to="/sessions"
                 className={({ isActive }) => (isActive ? "active" : "")}>
-                Sessions
+                Browse Sessions
               </NavLink>
             </li>
             <li>
