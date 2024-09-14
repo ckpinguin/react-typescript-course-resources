@@ -1,40 +1,35 @@
-import {
-  ComponentPropsWithoutRef,
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-} from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 
 export interface ModalHandle {
   open: () => void;
 }
 
-interface ModalProps extends ComponentPropsWithoutRef<"dialog"> {
+interface ModalProps {
+  children: React.ReactNode;
   onClose: () => void;
 }
 
 const Modal = forwardRef<ModalHandle, ModalProps>(function Modal(
-  { children, onClose, className = "" }: ModalProps,
+  { children, onClose },
   ref
 ) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const modal = dialog.current;
 
   // Expose upwards
   useImperativeHandle(ref, () => {
     return {
       open() {
-        if (modal) {
+        if (dialog.current) {
           console.log("Opening Modal");
-          modal.showModal();
+          dialog.current.showModal();
         }
       },
     };
   });
 
   return createPortal(
-    <dialog ref={dialog} className={`modal ${className}`} onClose={onClose}>
+    <dialog ref={dialog} className="modal" onClose={onClose}>
       {children}
     </dialog>,
     document.getElementById("modal-root")!
